@@ -6,21 +6,23 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpForce;
-    public Rigidbody rb;
+    public CharacterController controller;
+    private Vector3 moveDirection;
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        float xAxis = Input.GetAxis("Horizontal");
-        float zAxis = Input.GetAxis("Vertical");
-        rb.velocity = new Vector3(xAxis * moveSpeed, rb.velocity.y, zAxis * moveSpeed);
+        float xAxis = Input.GetAxis("Horizontal") * moveSpeed;
+        float zAxis = Input.GetAxis("Vertical") * moveSpeed;
+        moveDirection = new Vector3(xAxis, 0f, zAxis);
 
-        if (Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump"))
         {
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            moveDirection.y = jumpForce;
         }
+        controller.Move(moveDirection * Time.deltaTime);
     }
 }
