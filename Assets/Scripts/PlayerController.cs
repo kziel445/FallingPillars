@@ -16,15 +16,19 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float xAxis = Input.GetAxis("Horizontal") * moveSpeed;
-        float zAxis = Input.GetAxis("Vertical") * moveSpeed;
-        moveDirection = new Vector3(xAxis, 0f, zAxis);
-
-        if(Input.GetButtonDown("Jump"))
+        if (controller.isGrounded)
         {
-            moveDirection.y = jumpForce;
+            float xAxis = Input.GetAxis("Horizontal") * moveSpeed;
+            float zAxis = Input.GetAxis("Vertical") * moveSpeed;
+            moveDirection = new Vector3(xAxis, moveDirection.y, zAxis);
+
+            if(Input.GetButtonDown("Jump"))
+            {
+                moveDirection.y = jumpForce;
+            }
         }
-        moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale);
+        
+        moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
         controller.Move(moveDirection * Time.deltaTime);
     }
 }
