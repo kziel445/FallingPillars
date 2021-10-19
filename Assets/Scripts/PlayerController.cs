@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpForce;
+    public float gravityScale;
     public CharacterController controller;
     private Vector3 moveDirection;
     void Start()
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection.y = jumpForce;
         }
-        moveDirection.y = moveDirection.y + Physics.gravity.y;
+        moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale);
         controller.Move(moveDirection * Time.deltaTime);
     }
 }
