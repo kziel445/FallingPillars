@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
         transform.position = player.position - (rotation * offset);
 
         if (transform.position.y < player.position.y) transform.position = new Vector3(transform.position.x, player.position.y - 0.5f, transform.position.z);
-        transform.LookAt(player.transform);
+        transform.LookAt(player);
 
         //if(Input.GetKeyDown("c")) useOffSetValues = !useOffSetValues;
         //if (!useOffSetValues) offset = player.position - transform.position;
