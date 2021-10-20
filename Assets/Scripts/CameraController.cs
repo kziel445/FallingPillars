@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
         player.Rotate(0, horizontal, 0);
@@ -33,7 +33,8 @@ public class CameraController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(desiredXAngle, desiredYAngle, 0);
 
         transform.position = player.position - (rotation * offset);
-        //transform.position = player.position - offset;
+
+        if (transform.position.y < player.position.y) transform.position = new Vector3(transform.position.x, player.position.y - 0.5f, transform.position.z);
         transform.LookAt(player.transform);
 
         //if(Input.GetKeyDown("c")) useOffSetValues = !useOffSetValues;
