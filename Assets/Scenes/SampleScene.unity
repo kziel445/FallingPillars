@@ -133,7 +133,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7688
+  m_Name: pb_Mesh17296
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -479,8 +479,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 348502681}
-  offset: {x: 5, y: -5, z: 5}
+  camera: {fileID: 0}
+  offset: {x: 10, y: -3, z: 10}
   useOffSetValues: 0
+  rotateSpeed: 2
 --- !u!143 &1172646988 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: -8216826230179461149, guid: f9d72c20ac0ffc847b0318fa2a941dc7,
