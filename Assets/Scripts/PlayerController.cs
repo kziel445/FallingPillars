@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         if (controller.isGrounded)
         {
+            moveDirection.y = 0;
             float xAxis = Input.GetAxis("Horizontal") * moveSpeed;
             float zAxis = Input.GetAxis("Vertical") * moveSpeed;
             moveDirection = new Vector3(xAxis, moveDirection.y, zAxis);
