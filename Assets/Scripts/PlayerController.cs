@@ -4,39 +4,48 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;
-    public float jumpForce;
-    public float gravityScale;
-    public CharacterController controller;
-    private Vector3 moveDirection;
-    private Vector3 jumpDirection;
-    float yStore;
-    void Start()
+    private CharacterController controller;
+    private Vector3 playerVelocity;
+    private Vector3 move;
+    private Vector3 moveInAir;
+    private bool groundedPlayer;
+    private float playerSpeed = 10.0f;
+    public float jumpHeight = 1.0f;
+    private float gravityValue = -9.81f;
+
+    private void Start()
     {
         controller = GetComponent<CharacterController>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (controller.isGrounded)
-        {
-            jumpDirection = Vector3.zero;
-            moveDirection.y = 0f;
-            moveDirection = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
-            moveDirection = moveDirection.normalized * moveSpeed;
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
 
-            if (Input.GetButtonDown("Jump"))
-            {
-                moveDirection.y = jumpForce;
-            }
-        }
-        else if (!controller.isGrounded)
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
         {
-            jumpDirection = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
-            jumpDirection = jumpDirection.normalized * moveSpeed * 1 / 4 ;
+            playerVelocity.y = 0f;
+        }
+        if(groundedPlayer)
+        {
+            move = transform.right * moveX + transform.forward * moveZ;
+            moveInAir = Vector3.zero;
+        }
+        if (!groundedPlayer)
+        {
+            moveInAir = (transform.right * moveX + transform.forward * moveZ)*1/4;
         }
 
-        moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
-        controller.Move((moveDirection + jumpDirection) * Time.deltaTime);
+        controller.Move((move + moveInAir) * Time.deltaTime * playerSpeed);
+
+        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 }
