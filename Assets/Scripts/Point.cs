@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Point : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        gameObject.transform.Rotate(0, 3, 0);
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        ManagerUI.instance.points += 1;
+        Destroy(gameObject);
     }
 }
