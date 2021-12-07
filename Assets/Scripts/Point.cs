@@ -6,7 +6,7 @@ public class Point : MonoBehaviour
 {
     void Update()
     {
-        gameObject.transform.Rotate(0, 3, 0);
+        gameObject.transform.Rotate(3, 3, -3);
 
     }
     private void OnTriggerEnter(Collider other)

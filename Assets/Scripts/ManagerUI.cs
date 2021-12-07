@@ -34,11 +34,13 @@ public class ManagerUI : MonoBehaviour
 
             if (Time.timeScale == 0 && menu.active)
             {
+                Cursor.visible = false;
                 menu.SetActive(false);
                 Time.timeScale = 1;
             }
             else
             {
+                Cursor.visible = true;
                 Debug.Log(GameObject.Find("Menu"));
                 pasued.SetActive(false);
                 menu.SetActive(true);
