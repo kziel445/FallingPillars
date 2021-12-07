@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Point : MonoBehaviour
 {
+    [SerializeField] int points = 1;
     void Update()
     {
         gameObject.transform.Rotate(3, 3, -3);
@@ -11,7 +12,7 @@ public class Point : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        ManagerUI.instance.points += 1;
+        ManagerUI.instance.points += points;
         Destroy(gameObject);
     }
 }
