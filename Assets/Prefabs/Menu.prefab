@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.34901962}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1615,7 +1615,7 @@ RectTransform:
   m_GameObject: {fileID: 2254401321886612609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.57457, y: 0.57457, z: 0.57457}
   m_Children:
   - {fileID: 2254401320956720848}
   - {fileID: 2254401321188652027}
@@ -1626,8 +1626,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -115}
-  m_SizeDelta: {x: -800, y: -270}
+  m_AnchoredPosition: {x: 0, y: -98.5}
+  m_SizeDelta: {x: -800, y: -273}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &858252368867590115
 MonoBehaviour:
@@ -2173,8 +2173,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 217}
-  m_SizeDelta: {x: 807.4889, y: 169.52301}
+  m_AnchoredPosition: {x: 0, y: 227.1}
+  m_SizeDelta: {x: 1023.7965, y: 189.85321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5140423458107247430
 CanvasRenderer:
@@ -2203,7 +2203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Platfypus
+  m_text: Falling Pillars
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d1c6a64fa6b2ab4fb385e68cf4b8221, type: 2}
   m_sharedMaterial: {fileID: -1794747884681483874, guid: 4d1c6a64fa6b2ab4fb385e68cf4b8221,

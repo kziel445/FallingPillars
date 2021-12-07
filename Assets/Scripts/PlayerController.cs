@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviour
 
         if (gameObject.transform.position.y < 0)
         {
-            TeleportPlayerTo(new Vector3(15, 75, 5));
             ManagerUI.instance.lives -= 1;
+            TeleportPlayerTo(new Vector3(15, 75, 5));
         }
         if (Input.GetKeyDown(KeyCode.B)) TeleportPlayerTo(new Vector3(15, 75, 5));
     }
