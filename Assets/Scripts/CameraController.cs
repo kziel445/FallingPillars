@@ -5,40 +5,26 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform player;
-    public Camera camera;
-    public Vector3 offset;
-    public bool useOffSetValues = true;
-    public float rotateSpeed;
-    public Transform pivot;
+
+    public float sensitivity = 200f;
+
+    float xMax = 90;
+    float xMin = -90;
+    float mouseYMove;
 
     void Start()
     {
-        if (!useOffSetValues) offset = player.position - transform.position;
-        pivot.transform.position = player.transform.position;
-        pivot.transform.parent = player.transform;
-
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-    void FixedUpdate()
+    void Update()
     {
-        float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
-        player.Rotate(0, horizontal, 0);
+        float mouseXMove = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        mouseYMove += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
-        float vertical = Input.GetAxis("Mouse Y") * rotateSpeed;
-        pivot.Rotate(-vertical, 0, 0);
+        mouseYMove = Mathf.Clamp(mouseYMove, xMin, xMax);
 
-        float desiredYAngle = player.eulerAngles.y;
-        float desiredXAngle = pivot.eulerAngles.x;
-        Quaternion rotation = Quaternion.Euler(desiredXAngle, desiredYAngle, 0);
 
-        transform.position = player.position - (rotation * offset);
-
-        if (transform.position.y < player.position.y) transform.position = new Vector3(transform.position.x, player.position.y - 0.5f, transform.position.z);
-        transform.LookAt(player);
-
-        //if(Input.GetKeyDown("c")) useOffSetValues = !useOffSetValues;
-        //if (!useOffSetValues) offset = player.position - transform.position;
-
+        transform.localRotation = Quaternion.Euler(-mouseYMove, 0f, 0f);
+        player.Rotate(Vector3.up * mouseXMove);
     }
 }
