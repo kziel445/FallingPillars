@@ -47,5 +47,16 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if (gameObject.transform.position.y < 0)
+        {
+            TeleportPlayerTo(new Vector3(15, 75, 5));
+            ManagerUI.instance.lives -= 1;
+        }
+        if (Input.GetKeyDown(KeyCode.B)) TeleportPlayerTo(new Vector3(15, 75, 5));
     }
+    public void TeleportPlayerTo(Vector3 position)
+    {
+        gameObject.transform.position = position;
+    }    
 }
