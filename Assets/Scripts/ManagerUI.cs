@@ -31,17 +31,15 @@ public class ManagerUI : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
             if (Time.timeScale == 0 && menu.active)
             {
-                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 menu.SetActive(false);
                 Time.timeScale = 1;
             }
             else
             {
-                Cursor.visible = true;
-                Debug.Log(GameObject.Find("Menu"));
+                Cursor.lockState = CursorLockMode.Confined;
                 pasued.SetActive(false);
                 menu.SetActive(true);
                 Time.timeScale = 0;
@@ -74,12 +72,15 @@ public class ManagerUI : MonoBehaviour
     public void VictoryScreen()
     {
         victory.SetActive(true);
+        victory.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text = 
+            $"Time: {timerText.GetComponentInChildren<TMPro.TextMeshProUGUI>().text}\nPoints: {points}";
         Debug.Log("You are a winner! :D");
-
     }
     public void DefeatScreen()
     {
         deafeat.SetActive(true);
+        deafeat.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text =
+            $"Time: {timerText.GetComponentInChildren<TMPro.TextMeshProUGUI>().text}\nPoints: {points}";
         Debug.Log("You lose");
     }
 }

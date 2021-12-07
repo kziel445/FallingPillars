@@ -7,8 +7,7 @@ public class Point : MonoBehaviour
     [SerializeField] int points = 1;
     void Update()
     {
-        gameObject.transform.Rotate(3, 3, -3);
-
+        gameObject.transform.Rotate(1, 1, -1);
     }
     private void OnTriggerEnter(Collider other)
     {
