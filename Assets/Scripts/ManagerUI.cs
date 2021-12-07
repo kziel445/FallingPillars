@@ -31,17 +31,16 @@ public class ManagerUI : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
+            
             if (Time.timeScale == 0 && menu.active)
             {
-                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 menu.SetActive(false);
                 Time.timeScale = 1;
             }
             else
             {
-                Cursor.visible = true;
-                Debug.Log(GameObject.Find("Menu"));
+                Cursor.lockState = CursorLockMode.Confined;
                 pasued.SetActive(false);
                 menu.SetActive(true);
                 Time.timeScale = 0;
