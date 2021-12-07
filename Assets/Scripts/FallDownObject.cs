@@ -20,15 +20,23 @@ public class FallDownObject : MonoBehaviour
             rigidbody.Add(rb);
         }
     }
-    public void goFall()
+    public IEnumerator goFall()
     {
-        foreach(Rigidbody rb in rigidbody)
+        Debug.Log("1");
+        foreach (Rigidbody rb in rigidbody)
         {
+            Debug.Log("1");
+            yield return new WaitForSeconds(1);
+            Debug.Log("2");
             rb.constraints = RigidbodyConstraints.None;
         }
     }
+    IEnumerator timeToFall(float time)
+    {
+        yield return new WaitForSeconds(time);
+    }
     private void OnTriggerEnter(Collider other)
     {
-        goFall();
+        StartCoroutine(goFall());
     }
 }

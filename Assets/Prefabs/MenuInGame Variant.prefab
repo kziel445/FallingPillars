@@ -61,7 +61,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 4291902069537484744}
+      objectReference: {fileID: 145522402099581165}
     - target: {fileID: 2254401321840144792, guid: ea711d0a36acbe24ab8177c2563be8da,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -86,6 +86,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2254401321840144792, guid: ea711d0a36acbe24ab8177c2563be8da,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2254401321840144792, guid: ea711d0a36acbe24ab8177c2563be8da,
         type: 3}
@@ -235,13 +240,13 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2650043198059578954}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4291902069537484744 stripped
+--- !u!114 &145522402099581165 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2254401321987975554, guid: ea711d0a36acbe24ab8177c2563be8da,
+  m_CorrespondingSourceObject: {fileID: 2792838583689008807, guid: ea711d0a36acbe24ab8177c2563be8da,
     type: 3}
   m_PrefabInstance: {fileID: 2650043198059578954}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4291902069838333403}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 128af68d2611c2942b5c255a96124fa9, type: 3}

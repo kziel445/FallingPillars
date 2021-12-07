@@ -75,6 +75,7 @@ public class ManagerUI : MonoBehaviour
         victory.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text = 
             $"Time: {timerText.GetComponentInChildren<TMPro.TextMeshProUGUI>().text}\nPoints: {points}";
         Debug.Log("You are a winner! :D");
+        Time.timeScale = 0;
     }
     public void DefeatScreen()
     {
@@ -82,5 +83,6 @@ public class ManagerUI : MonoBehaviour
         deafeat.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text =
             $"Time: {timerText.GetComponentInChildren<TMPro.TextMeshProUGUI>().text}\nPoints: {points}";
         Debug.Log("You lose");
+        Time.timeScale = 0;
     }
 }

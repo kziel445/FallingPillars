@@ -7,5 +7,6 @@ public class Win : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         ManagerUI.instance.VictoryScreen();
+
     }
 }

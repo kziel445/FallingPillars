@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class Menu : MonoBehaviour
 {
+    public AudioMixer audioMixer;
     public void ContinueGame()
     {
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void PlayGame()
     {
@@ -22,5 +25,8 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("Volume", volume);
+    }
 }
